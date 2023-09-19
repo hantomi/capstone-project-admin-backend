@@ -221,16 +221,17 @@ namespace DeliverBox_BE.Controllers
 
                 var result = new List<BusinessChart>();
                 var orderPerDay = new Collection<BusinessChartObject>();
-                int y = 1;
+                int z = 0;
                 for (int i = 7; i > 0; i--) {
                     DateTime now = DateTime.Now;
                     now = now.AddDays(-(i - 1));
                     
-                    for (y = 1; y <= businesses.Count(); y++)
+                    for (int y = 1; y <= businesses.Count(); y++)
                     {
-                        orderPerDay.Add(listCharObj[y-1]);
+                        orderPerDay.Add(listCharObj[z]);
+                        z++;
                     }
-
+                    
                     result.Add(new BusinessChart(now.Day + "/" + now.Month, orderPerDay));
                     orderPerDay = new Collection<BusinessChartObject>();
                 }
