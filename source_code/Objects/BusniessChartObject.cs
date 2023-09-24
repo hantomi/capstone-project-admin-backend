@@ -2,18 +2,14 @@
 {
     public class BusinessChartObject
     {
-        public BusinessChartObject(string? date, string? businessName,
+        public BusinessChartObject(int? id, string? businessName,
             int? busniessAmount)
         {
-            id = Interlocked.Increment(ref nextId);
-            this.date = date;
+            this.id = id;
             this.businessName = businessName;
             this.businessAmount = busniessAmount;
         }
-
-        static int nextId;
-        public int id { get; private set; }
-        public string? date { get; set; }
+        public int? id { get; set; }
         public string? businessName { get; set; }
         public int? businessAmount { get; set; }
     }

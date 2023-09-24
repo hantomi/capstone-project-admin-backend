@@ -194,13 +194,13 @@ namespace DeliverBox_BE.Controllers
 
                 BookingOrder temp = new BookingOrder();
                 var listCharObj = new List<BusinessChartObject>();
-
+                int businessId = 1;
                 for (int i = 7; i > 0; i--)
                 {
                     DateTime now = DateTime.Now;
                     now = now.AddDays(-(i - 1));
                     int count = 0;
-
+                    
                     foreach(var business in businesses)
                     {
                         foreach (var bookingOrder in data)
@@ -214,9 +214,11 @@ namespace DeliverBox_BE.Controllers
                                 }
                             }
                         }
-                        listCharObj.Add(new BusinessChartObject(now.Day + "/" + now.Month, business.businessName, count));
+                        listCharObj.Add(new BusinessChartObject(businessId, business.businessName, count));
                         count = 0;
+                        businessId++;
                     }
+                    businessId = 0;
                 }
 
                 var result = new List<BusinessChart>();
