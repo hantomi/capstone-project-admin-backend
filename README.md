@@ -1,2 +1,2 @@
 # capstone-project-admin-backend
-Backend cho web admin của capstone project
+Backend for web admin
